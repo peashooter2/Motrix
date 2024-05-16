@@ -22,7 +22,7 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 19
 
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v2
@@ -50,7 +50,7 @@ jobs:
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          release: ${{ vars.skip_publish != 'true' }}
+          release: ${{ vars.skip_publish != 'false' }}
         env:
           # Snapcraft
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
